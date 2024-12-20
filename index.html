@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>صفحة تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400vh;
+            background-color: #000000;
+        }
+        .login-container {
+            background-color: white;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #20cf26;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #00fd0d;
+        }
+    </style>
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            window.location.href = "welcome.html?username=" + username;
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <form onsubmit="login(); return false;">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="تسجيل الدخول">
+        </form>
+    </div>
+</body>
+</html>
