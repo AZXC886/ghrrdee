@@ -19,6 +19,7 @@ const upload = multer({ storage: storage });
 
 app.use(express.static('public'));
 
+// مسار رفع الفيديو
 app.post('/upload', upload.single('video'), (req, res) => {
     res.send('تم تحميل الفيديو بنجاح!');
 });
