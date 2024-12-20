@@ -61,29 +61,6 @@
             display: none;
         }
     </style>
-    <script>
-        function uploadVideo() {
-            document.getElementById('videoUpload').click();
-        }
-
-        function handleFileChange(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const videoContainer = document.createElement('div');
-                videoContainer.className = 'movie';
-                
-                const videoElement = document.createElement('video');
-                videoElement.controls = true;
-                videoElement.width = 400;
-                videoElement.src = URL.createObjectURL(file);
-                videoContainer.appendChild(videoElement);
-
-                document.querySelector('.content').appendChild(videoContainer);
-                alert(`تم تحميل الفيديو: ${file.name}`);
-                // هنا يمكنك إضافة كود لإرسال الفيديو إلى الخادم إذا كنت ترغب في حفظ الفيديو.
-            }
-        }
-    </script>
 </head>
 <body>
 
@@ -121,8 +98,10 @@
         <p>وصف قصير للفيلم الثالث.</p>
     </div>
 
-    <button class="upload-button" onclick="uploadVideo()">اختر فيديو</button>
-    <input type="file" id="videoUpload" accept="video/*" onchange="handleFileChange(event)">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <button class="upload-button" type="button" onclick="document.getElementById('videoUpload').click()">اختر فيديو</button>
+        <input type="file" id="videoUpload" name="video" accept="video/*" onchange="document.querySelector('form').submit()">
+    </form>
 </div>
 
 </body>
