@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>صفحة الأفلام</title>
+    <title>صفحة الأفلام مع زر إرسال فيديو</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,7 +45,45 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        .upload-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .upload-button:hover {
+            background-color: #45a049;
+        }
+        input[type="file"] {
+            display: none;
+        }
     </style>
+    <script>
+        function uploadVideo() {
+            document.getElementById('videoUpload').click();
+        }
+
+        function handleFileChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoContainer = document.createElement('div');
+                videoContainer.className = 'movie';
+                
+                const videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.width = 400;
+                videoElement.src = URL.createObjectURL(file);
+                videoContainer.appendChild(videoElement);
+
+                document.querySelector('.content').appendChild(videoContainer);
+                alert(`تم تحميل الفيديو: ${file.name}`);
+                // هنا يمكنك إضافة كود لإرسال الفيديو إلى الخادم إذا كنت ترغب في حفظ الفيديو.
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -54,85 +92,38 @@
     <a href="film1.html">اشتراك في الموقع الكتروني </a>
     <a href="film2.html">افلام او جميع افلام ديزانى</a>
     <a href="">الصفحة الراسية</a>
-    
-        >       </a>
     <img src="https://th.bing.com/th/id/R.f1a756213a162ba0317a032008d6d99f?rik=E01VE4dOkb0KUg&pid=ImgRaw&r=0" alt="شعار الموقع" width="60">
-
-   </div> 
+</div>
 
 <div class="content">
     <div class="movie">
         <img src="https://example.com/image1.jpg" alt="فيلم 1">
         <h3>افلام ديزاني مدبلجة</h3>
-        <p>افلام جودة علية </p>
+        <p>افلام جودة علية</p>
     </div>   
-    <h1>افلام ديزاني مدبلجة </h1>
-         <video controls width="400" loop muted >
-             <source src="video/video.mp4" type="video/mp4"> 
-            </video>
-
-            <video controls width="400" loop muted >
-                <source src="video/pp.mp4" type="video/mp4"> 
-               </video>
+    <h1>افلام ديزاني مدبلجة</h1>
+    <video controls width="400" loop muted>
+        <source src="video/video.mp4" type="video/mp4"> 
+    </video>
+    <iframe width="400" height="223" src="https://www.youtube.com/embed/P-ZjagaeRWU" title="فلم ديزني" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <video controls width="400" loop muted>
+        <source src="video/pp.mp4" type="video/mp4"> 
+    </video>
 
     <div class="movie">
         <img src="https://example.com/image2.jpg" alt="فيلم 2">
         <h3>فيلم 2</h3>
         <p>وصف قصير للفيلم الثاني.</p>
-
-
     </div>
     <div class="movie">
         <img src="https://example.com/image3.jpg" alt="فيلم 3">
         <h3>فيلم 3</h3>
         <p>وصف قصير للفيلم الثالث.</p>
     </div>
+
+    <button class="upload-button" onclick="uploadVideo()">اختر فيديو</button>
+    <input type="file" id="videoUpload" accept="video/*" onchange="handleFileChange(event)">
 </div>
 
 </body>
 </html>
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>صفحة مع حقوق الطبع والنشر</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .content {
-            flex: 1;
-            padding: 20px;
-        }
-        .footer {
-            background-color: #333;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-<div class="content">
-    <!-- افلام مجانية واشتراك وجودا عالية-->
-</div>
-
-<div class="footer">
-    &copy; 2023 جميع الحقوق محفوظة. تصميم وتطوير بواسطة نايف.
-</div>
-
-</body>
-</html>
-
